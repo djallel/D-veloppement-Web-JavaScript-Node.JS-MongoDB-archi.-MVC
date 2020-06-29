@@ -32,7 +32,7 @@ function afficherLivres(){
                 <td>${biblio[i].nom}</td>
                 <td>${biblio[i].auteur}</td>
                 <td>${biblio[i].pages}</td>
-                <td><button class="btn btn-warning">Modifier</button></td>
+                <td><button class="btn btn-warning" onClick="afficherFormModification(${i})">Modifier</button></td>
                 <td><button class="btn btn-danger" onClick="supprimerLivre(${i})">Supprimer</button></td>
             <tr/>`;
     }
@@ -41,6 +41,7 @@ function afficherLivres(){
 
 function ajoutFormulaire(){
     document.querySelector("#ajoutForm").removeAttribute("class");
+    document.querySelector("#modifLivre").className = "d-none";
 }
 
 document.querySelector("#validationFormAjout").addEventListener("click", function(event){
@@ -72,6 +73,30 @@ function supprimerLivre(position){
     } else {
         alert("suppression annulée");
     }
-  
 }
+
+function afficherFormModification(position){
+    document.querySelector("#ajoutForm").className = "d-none";
+
+    document.querySelector("#modifLivre").removeAttribute("class");
+    document.querySelector("#modifLivre #titre").value = biblio[position].nom;
+    document.querySelector("#modifLivre #auteur").value = biblio[position].auteur;
+    document.querySelector("#modifLivre #pages").value = biblio[position].pages;
+    document.querySelector("#modifLivre #identifiant").value = position;
+    console.log(position);
+}
+
+document.querySelector("#validationFormModif").addEventListener("click", function(e){
+    e.preventDefault();
+    var titre = document.querySelector("#modifLivre #titre").value;
+    var auteur = document.querySelector("#modifLivre #auteur").value;
+    var pages = document.querySelector("#modifLivre #pages").value;
+    var positionLivre = document.querySelector("#modifLivre #identifiant").value;
+
+    biblio[positionLivre].nom = titre;
+    biblio[positionLivre].auteur = auteur;
+    biblio[positionLivre].pages = pages;
+    afficherLivres();
+    document.querySelector("#modifLivre").className = "d-none";
+})
 
