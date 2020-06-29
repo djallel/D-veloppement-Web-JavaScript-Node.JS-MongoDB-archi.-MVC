@@ -33,7 +33,7 @@ function afficherLivres(){
                 <td>${biblio[i].auteur}</td>
                 <td>${biblio[i].pages}</td>
                 <td><button class="btn btn-warning">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-danger" onClick="supprimerLivre(${i})">Supprimer</button></td>
             <tr/>`;
     }
     tableauLivres.innerHTML = livres;
@@ -62,5 +62,16 @@ function ajoutLivre(titre,auteur,pages){
     }
     biblio.push(livre);
     afficherLivres();
+}
+
+function supprimerLivre(position){
+    if(confirm("Voulez-vous vraiment supprimer ? ")){
+        biblio.splice(position, 1);
+        afficherLivres();
+        alert("suppression effectuée");
+    } else {
+        alert("suppression annulée");
+    }
+  
 }
 
