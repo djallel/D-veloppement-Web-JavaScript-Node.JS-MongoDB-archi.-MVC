@@ -33,29 +33,6 @@ for (i = 0 ; i <= livres.length -1 ; i++){
 }
 
 function ajoutFormulaire(){
-    if(!document.querySelector("#formAjout")){
-        var monForm = document.createElement("form");
-        monForm.setAttribute("id","formAjout");
-        monForm.innerHTML = `
-            <fieldset>
-                <legend>Création d'un livre</legend>
-                <div class="form-group">
-                    <label for="titre">Titre</label>
-                    <input type="text" class="form-control" id="titre">
-                </div>
-                <div class="form-group">
-                    <label for="auteur">Auteur</label>
-                    <input type="text" class="form-control" id="auteur">
-                </div>
-                <div class="form-group">
-                    <label for="pages">Pages</label>
-                    <input type="number" class="form-control" id="pages">
-                </div>
-                <button type="submit" class="btn btn-primary">Valider</button>
-            </fieldset>
-        `;
-        document.querySelector(".container").appendChild(monForm);
-    }
-   
+    document.querySelector("#ajoutForm").removeAttribute("class");
 }
 
