@@ -22,14 +22,21 @@ var l4 = {
 }
 
 var biblio = [l1,l2,l3,l4];
-for (i = 0 ; i <= biblio.length -1 ; i++){
-    var livre1 = document.createElement("tr");
-    livre1.innerHTML = `<td>${biblio[i].nom}</td>
-                    <td>${biblio[i].auteur}</td>
-                    <td>${biblio[i].pages}</td>
-                    <td><button class="btn btn-warning">Modifier</button></td>
-                    <td><button class="btn btn-danger">Supprimer</button></td>`;
-    table.appendChild(livre1);
+afficherLivres();
+
+function afficherLivres(){
+    var tableauLivres = document.querySelector("#tableauLivres tbody");
+    var livres = "";
+    for (i = 0 ; i <= biblio.length -1 ; i++){
+        livres += `<tr>
+                <td>${biblio[i].nom}</td>
+                <td>${biblio[i].auteur}</td>
+                <td>${biblio[i].pages}</td>
+                <td><button class="btn btn-warning">Modifier</button></td>
+                <td><button class="btn btn-danger">Supprimer</button></td>
+            <tr/>`;
+    }
+    tableauLivres.innerHTML = livres;
 }
 
 function ajoutFormulaire(){
@@ -42,6 +49,9 @@ document.querySelector("#validationFormAjout").addEventListener("click", functio
     var auteur = document.querySelector("#ajoutForm #auteur").value;
     var pages = document.querySelector("#ajoutForm #pages").value;
     ajoutLivre(titre,auteur,pages);
+    const formulaire = document.querySelector("#ajoutForm");
+    formulaire.reset();
+    formulaire.className = "d-none";
 });
 
 function ajoutLivre(titre,auteur,pages){
@@ -51,6 +61,6 @@ function ajoutLivre(titre,auteur,pages){
         pages : pages
     }
     biblio.push(livre);
-    console.log(biblio);
+    afficherLivres();
 }
 
