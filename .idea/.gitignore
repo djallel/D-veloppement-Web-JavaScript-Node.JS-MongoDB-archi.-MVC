@@ -1,0 +1,16 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/sonarlint/issuestore/9/5/95f6a7fa805e1b9db1b32a32e3f5d768774e3ddc
+/D-veloppement-Web-JavaScript-Node.JS-MongoDB-archi.-MVC.iml
+/sonarlint/issuestore/index.pb
+/sonarlint/issuestore/2/3/2378c268daa3dd4cb9f449bc7b21b3a8ef458d4c
+/misc.xml
+/modules.xml
+/sonarIssues.xml
+/vcs.xml
