@@ -4,8 +4,8 @@ var server = express();
 server.listen(3000);
 
 server.get("/", (requete, reponse) =>{
-    console.log("demande recue avec la méthode GET sur l'url /")
-    reponse.end("Demande GET reçue")
+    console.log("Page d'accueil demandée")
+    reponse.end("Page d'accueil demandée")
 })
 
 server.get("/test", (requete, reponse) =>{
