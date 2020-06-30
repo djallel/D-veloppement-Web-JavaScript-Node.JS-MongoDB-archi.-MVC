@@ -1,5 +1,8 @@
 var express = require("express");
 var server = express();
+var morgan = require("morgan");
+
+server.use(morgan("dev"));
 
 server.listen(3000);
 
