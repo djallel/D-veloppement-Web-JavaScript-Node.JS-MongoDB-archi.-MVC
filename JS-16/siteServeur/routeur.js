@@ -6,14 +6,13 @@ routeur.get("/", (requete, reponse) =>{
     reponse.render("accueil.html.twig")
 })
 
-routeur.get("/test", (requete, reponse) =>{
-    console.log("demande recue avec la méthode GET sur l'url /test")
-    reponse.end("Demande GET reçue")
+routeur.get("/livres", (requete, reponse) =>{
+    reponse.render("livres/liste.html.twig")
 })
 
-routeur.post("/test", (requete, reponse) =>{
-    console.log("demande recue avec la méthode POST sur l'url /test")
-    reponse.end("Demande POST reçue")
+routeur.get("/livres/:nom", (requete,reponse) => {
+    console.log(requete.params.nom)
+    reponse.render("livres/livre.html.twig",{nom:requete.params.nom})
 })
 
 routeur.use((requete,reponse,suite) => {
